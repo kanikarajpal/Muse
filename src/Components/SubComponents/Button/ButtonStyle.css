@@ -1,0 +1,11 @@
+.btn-style{
+    padding : 1em;
+    color : white;
+    border-radius: 5px;
+    width : 95%;
+    background-color: var(--orange-primary);
+    cursor: pointer;
+}
+.btn-style:hover{
+    background-color : var(--orange-secondary);
+}

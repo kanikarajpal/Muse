@@ -1,0 +1,10 @@
+.main-head{
+    color : var(--orange-primary);
+    font-size: var(--lg);
+    margin-bottom: 1em;
+}
+.main-section{
+    display: flex;
+    justify-content: space-between;
+    
+}

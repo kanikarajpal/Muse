@@ -1,0 +1,7 @@
+.Login-section{
+    display: flex;
+   justify-content: space-evenly;
+}
+.login-btn{
+    width : 35%;
+}

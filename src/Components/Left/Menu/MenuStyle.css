@@ -1,0 +1,19 @@
+.main-head {
+  font-size: var(--sm);
+  color: var(--orange-primary);
+  margin: 0.5em 0em;
+}
+.sub-head {
+  font-size: var(--xs);
+  padding: 0.3em 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  margin: 0.5em 0em;
+  color: var(--white-secondary);
+}
+.sub-head:hover {
+  color: var(--orange-primary);
+  background-color: var(--brown-secondary);
+}
+
+

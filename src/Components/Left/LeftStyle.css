@@ -1,0 +1,12 @@
+.left-container{
+    width: 21%;
+    padding : 1em;
+    display : flex;
+    flex-direction: column;
+    outline: 2px solid grey;
+    justify-content: space-between;
+
+}
+.premium-btn{
+    width :95%;
+}

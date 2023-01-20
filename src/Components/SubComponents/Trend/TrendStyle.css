@@ -1,0 +1,24 @@
+.text {
+  color: white;
+}
+
+.trend-section {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1em;
+  align-items: center;
+
+}
+.text {
+  color: var(--white-primary);
+  font-size: var(--xs);
+}
+.singerName {
+  color: var(--white-secondary);
+  font-size: var(--xs);
+}
+
+.avatar-text {
+  display: flex;
+  gap: 1em;
+}
