@@ -1,0 +1,22 @@
+.playcard-div {
+  display: flex;
+  flex-direction: column;
+  padding: 1em;
+  background-color: var(--blue-secondary);
+  width: 100%;
+  padding-top : 12%;
+min-height : 95%;
+  font-size: var(--xs);
+  border-radius: 10px;
+  justify-content: space-between;
+  
+ 
+}
+.img-div {
+  object-fit: cover;
+  height: 70%;
+}
+
+.singer {
+  color: var(--white-secondary);
+}

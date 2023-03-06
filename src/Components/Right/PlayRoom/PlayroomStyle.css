@@ -1,5 +1,69 @@
 .playroom-container {
+  height: max-content;
+  padding: 0.5rem 1rem;
   display: flex;
   flex-direction: column;
-  
+  align-items: center;
+  gap: 1rem;
+  border: 1px dashed var(--orange-primary);
+  border-radius: 15px;
+  background-color: var(--blue-secondary);
+}
+
+.playRoom-div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+.join-create-div {
+  display: flex;
+  gap: 1em;
+  margin-bottom:1rem;
+}
+.button-div {
+  padding: 0.5em;
+  font-size: var(--sm);
+}
+
+.modal-box {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5em;
+}
+.search-option {
+  border: 0;
+  width: 70%;
+  padding: 0 1rem;
+  border-radius: 18px;
+  color: var(--white-secondary);
+  background-color: var(--brown-secondary);
+}
+.search-bar {
+  display: flex;
+  gap: 1.5em;
+}
+.close-btn {
+  color: var(--white-secondary);
+  position: absolute;
+  top: 5%;
+  right: 5%;
+}
+
+.notif {
+  position: absolute;
+  top: 8%;
+  right: 40%;
+  z-index: 100000;
+}
+.playroom-heading {
+  color: var(--orange-primary);
+  font-size: var(--lg);
+  text-align: center;
+}
+
+.playroom-heading-2 {
+  font-size: var(--xs);
+  text-align: center;
+  color: var(--white-secondary);
 }

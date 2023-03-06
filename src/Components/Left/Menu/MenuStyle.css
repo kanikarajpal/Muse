@@ -1,19 +1,24 @@
 .main-head {
-  font-size: var(--sm);
+  font-size: var(--lg);
   color: var(--orange-primary);
-  margin: 0.5em 0em;
+  
 }
 .sub-head {
-  font-size: var(--xs);
+  font-size: var(--sm);
   padding: 0.3em 1em;
   cursor: pointer;
   border-radius: 5px;
-  margin: 0.5em 0em;
+  margin:0.3em;
   color: var(--white-secondary);
 }
 .sub-head:hover {
   color: var(--orange-primary);
   background-color: var(--brown-secondary);
 }
+.menu{
+  margin-bottom: 1em;
+}
 
-
+.login-btn{
+  
+}

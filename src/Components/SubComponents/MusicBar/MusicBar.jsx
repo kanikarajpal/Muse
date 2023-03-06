@@ -1,10 +1,9 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { styled, Typography, Slider, Paper, Stack, Box } from "@mui/material";
-
-import PauseIcon from "@mui/icons-material/Pause";
+import PauseCircleIcon from '@mui/icons-material/PauseCircle';
 import FastRewindIcon from "@mui/icons-material/FastRewind";
 import FastForwardIcon from "@mui/icons-material/FastForward";
-import PlayArrowIcon from "@mui/icons-material/PlayArrow";
+import PlayCircleIcon from '@mui/icons-material/PlayCircle';
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import { ContentContext } from "../../../App";
@@ -149,7 +148,7 @@ export default function MusicBar() {
             />
 
             {!isPlaying ? (
-              <PlayArrowIcon
+              <PlayCircleIcon
                 fontSize={"large"}
                 sx={{ color: "white", "&:hover": { color: "white" } }}
                 onClick={() => {
@@ -158,7 +157,7 @@ export default function MusicBar() {
                 }}
               />
             ) : (
-              <PauseIcon
+              <PauseCircleIcon
                 fontSize={"large"}
                 sx={{ color: "white", "&:hover": { color: "white" } }}
                 onClick={() => {

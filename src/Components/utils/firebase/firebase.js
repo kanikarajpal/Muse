@@ -1,87 +1,93 @@
 // Import the functions you need from the SDKs you need
-
 import { initializeApp } from "firebase/app";
 import {
-  getAuth,
-  signOut,
-  onAuthStateChanged,
-  signInWithPopup,
-  signInWithRedirect,
+  doc,
+  setDoc,
+  getDocs,
+  updateDoc,
+  collection,
+  getFirestore,
+} from "firebase/firestore";
+
+import {
   GoogleAuthProvider,
-  createUserWithEmailAndPassword,
-  signInWithEmailAndPassword,
+  getAuth,
+  signInWithPopup,
+  onAuthStateChanged,
+  signOut,
 } from "firebase/auth";
 
-import { getFirestore, doc, getDoc, setDoc } from "firebase/firestore";
-
 const firebaseConfig = {
-  apiKey: "AIzaSyDGNuwPmYHTgwo0aoQuppeekGT09zwi3qE",
-  authDomain: "capstone-c0efb.firebaseapp.com",
-  projectId: "capstone-c0efb",
-  storageBucket: "capstone-c0efb.appspot.com",
-  messagingSenderId: "535351419965",
-  appId: "1:535351419965:web:3bd89c038623911a97b654",
-  measurementId: "G-0YRKV416ZQ",
+  apiKey: "AIzaSyDPQpMZNuxNZb0gp3MPe4vVvqFo2LcaJzw",
+  authDomain: "muse-2d662.firebaseapp.com",
+  projectId: "muse-2d662",
+  storageBucket: "muse-2d662.appspot.com",
+  messagingSenderId: "617806441919",
+  appId: "1:617806441919:web:ffe7d3993365f87fb9c50a",
+  measurementId: "G-079CF7HQTL",
 };
-
 const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-
+const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
-
 provider.setCustomParameters({
   prompt: "select_account",
 });
 
-export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
-export const signWithGoogleRedirect = () => signInWithRedirect(auth, provider);
+const db = getFirestore(app);
 
-export const createUserDocumentFromAuth = async (userAuth, localName) => {
-  const userDocRef = doc(db, "users", userAuth.uid);
-  const userSnapshot = await getDoc(userDocRef);
+export const checkPlayroom = async (playRoomName, str) => {
+  const querySnapshot = await getDocs(collection(db, playRoomName));
+ 
 
-  if (!userSnapshot.exists()) {
-    const { displayName, email } = userAuth;
-    const createdAt = new Date();
-    const userName = displayName ? displayName : localName;
-
-    try {
-      await setDoc(userDocRef, {
-        displayName: userName,
-        email,
-        createdAt,
-      });
-    } catch (error) {
-      console.log("Couldn't create the user account ! ", error.message);
-    }
+  if (!querySnapshot.empty) {
+    return str === "join" ? querySnapshot : 0;
+  } else {
+    return str === "join" ? 0: 1;
   }
-
-  return userDocRef;
 };
 
-export const createAuthUserWithEmailAndPassword = async (email, password) => {
-  if (!email || !password) return;
+export const createUser = async (playRoomName, user) => {
+  const data = {
+    name: playRoomName,
+    userList: [user],
+    songList: [],
+  };
 
-  return await createUserWithEmailAndPassword(auth, email, password);
+  const ref = doc(collection(db, playRoomName));
+  await setDoc(ref, data);
 };
 
-export const signAuthUserWithEmailAndPassword = async (email, password) => {
-  if (!email || !password) return;
+export const joinUser = async (resp, playRoomName, newUser) => {
+   let flag = 0;
+  resp.forEach(async (item) => {
+    const { userList, songList } = item.data();
 
-  return await signInWithEmailAndPassword(auth, email, password);
+   
+    userList.forEach((user) => {
+      if (user.userEmail === newUser.userEmail) {
+        flag = 1;
+      }
+    });
+
+    if (!flag) {
+      const newUserList = [...userList, newUser];
+      const data = {
+        name: playRoomName,
+        userList: newUserList,
+        songList: songList,
+      };
+
+      const ref = doc(db, playRoomName, item.id);
+      await updateDoc(ref, data);
+      
+    }
+    
+  });
+  return flag;
 };
 
-export const showDetails = async (userAuth) => {
-  const userDoc = doc(db, "users", userAuth.uid);
+export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 
-  const docSnap = await getDoc(userDoc);
-  let username = docSnap.data().displayName;
-
-  return username;
-};
+export const checkUser = (callback) => onAuthStateChanged(auth, callback);
 
 export const signOutUser = async () => await signOut(auth);
-
-
-e

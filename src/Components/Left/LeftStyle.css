@@ -1,12 +1,30 @@
-.left-container{
-    width: 21%;
-    padding : 1em;
-    display : flex;
-    flex-direction: column;
-    outline: 2px solid grey;
-    justify-content: space-between;
+.left-container {
+  width: 17%;
+  padding: 1em;
+  display: flex;
+  flex-direction: column;
+  outline: 2px solid rgb(37, 36, 36);
+  justify-content: space-between;
+ 
+}
+.premium-btn {
+  width: 85%;
+ padding-left: 0%;
+  margin-left: 10%;
+}
+.google-icon {
+  width: var(--lg);
+ 
+}
+.login-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  justify-content: center;
+  font-size: var(--md);
+  margin:0 0.5em;
 
 }
-.premium-btn{
-    width :95%;
+.btn-container{
+  align-items: center;
 }

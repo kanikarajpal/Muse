@@ -1,11 +1,16 @@
-.btn-style{
-    padding : 1em;
-    color : white;
-    border-radius: 5px;
-    width : 95%;
-    background-color: var(--orange-primary);
-    cursor: pointer;
+.btn-style {
+  padding: 0.8em;
+  color: white;
+  
+  border-radius: 7px;
+  background-color: var(--orange-primary);
+  cursor: pointer;
+  font-size: var(--md);
 }
-.btn-style:hover{
-    background-color : var(--orange-secondary);
+.btn-style:hover {
+  background-color: var(--orange-secondary);
+}
+.button-div{
+  
+ padding: 0.5em;
 }

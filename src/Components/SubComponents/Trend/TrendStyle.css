@@ -1,24 +1,34 @@
-.text {
-  color: white;
+
+
+.avatar-text {
+  display: flex;
+  gap: 1em;
 }
 
 .trend-section {
   display: flex;
   justify-content: space-between;
-  margin-bottom: 1em;
   align-items: center;
+  cursor: pointer;
 
+  padding: 0.3em 1em;
+  margin-bottom: 0.5em;
+  border-radius: 5px;
+}
+.trend-section:hover {
+  background-color: var(--brown-secondary);
+}
+.text-section {
+  font-size: var(--xs);
 }
 .text {
   color: var(--white-primary);
-  font-size: var(--xs);
 }
 .singerName {
   color: var(--white-secondary);
-  font-size: var(--xs);
 }
 
-.avatar-text {
+.iconSection {
   display: flex;
-  gap: 1em;
+  gap: 0.5em;
 }

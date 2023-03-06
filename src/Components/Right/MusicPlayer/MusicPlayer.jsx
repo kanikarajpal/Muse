@@ -1,4 +1,3 @@
-
 import "./MusicPlayerStyle.css";
 import React, { useContext } from "react";
 import MusicBar from "../../SubComponents/MusicBar/MusicBar";
@@ -9,8 +8,7 @@ export default function MusicPlayer() {
 
   return (
     <div className="music-player-container">
-      <h2 className="music-player-heading">Now Playing</h2>
-
+      <p className="music-player-heading">Now Playing</p>
       <div className="music-player-image-container">
         <img
           className="music-player-image"

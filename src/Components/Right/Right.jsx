@@ -4,13 +4,11 @@ import Playroom from "./PlayRoom/Playroom";
 import "./RightStyle.css";
 
 export default function Right() {
-    
   return (
-      <div className="right-container">Right
-                <Navbar/>
-                <Playroom />
-              <MusicPlayer />
-          
-      </div>
-  )
+    <div className="right-container">
+      <Navbar />
+      <Playroom />
+      <MusicPlayer />
+    </div>
+  );
 }

@@ -1,32 +1,51 @@
- @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap'); 
- *{
+@import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
+* {
   margin: 0;
   padding: 0;
   border: 0;
   box-sizing: border-box;
- 
- 
-
 }
 body {
   height: 100%;
   background-color: #171a21;
+ 
   color: white;
-  font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 :root {
   --orange-primary: #fe6d1c;
   --orange-secondary: #d9683b;
-  
   --brown-secondary: #332421;
   --blue-primary: #171a21;
   --white-primary: #f7f7f7;
-  --white-secondary : rgb(201, 198, 198);
-  --white-secondary : rgb(167, 161, 161);
-  --xs : 0.8em;
-  --sm : 1em;
-  --md : 1.2em;
-  --lg : 1.5em;
+  --white-secondary: rgb(201, 198, 198);
+  --white-secondary: rgb(160, 155, 155);
+  --blue-secondary: #1b1e27;
+  --xs: 0.78em;
+  --sm: 0.9em;
+  --md: 1em;
+  --lg: 1.2em;
+}
+.swiper-button-next{
+  /* left: 105%!important; */
+  z-index: 10000;
+  color: var(--orange-primary) !important;
+}
+.swiper-button-prev {
+  color: var(--orange-primary) !important;
+   
+  z-index: 10000;
+}
+
+.swiper-pagination-progressbar-fill {
+  background-color: var(--orange-primary) !important;
+}
+
+
+.swiper-pagination-progressbar{
+  position: absolute;
+  bottom: 0px;
+  background-color:  red;
 }
 
