@@ -6,7 +6,7 @@ import { Avatar } from "@mui/material";
 import NotificationsActiveSharpIcon from '@mui/icons-material/NotificationsActiveSharp';
 export default function Navbar() {
 
-    const { currentUser,photo, userName, userEmail } = useContext(ContentContext);
+    const { photo, userName, userEmail } = useContext(ContentContext);
   
   return (
     <div className="Login-section">

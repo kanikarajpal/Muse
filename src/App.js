@@ -7,7 +7,6 @@ import Middle from "../src/Components/Middle/Middle";
 import { checkUser } from "./Components/utils/firebase/firebase";
 import { playlist } from "../src/data";
 
-
 export const ContentContext = createContext();
 
 const App = () => {
@@ -20,7 +19,7 @@ const App = () => {
   useEffect(() => {
     const unsubscribe = checkUser((user) => {
       setCurrentUser(user);
-    
+
       setTimeout(() => {
         setLoading(false);
       }, 100);
@@ -56,11 +55,15 @@ const App = () => {
         setIsPlaying,
       }}
     >
-      <div className="App">
-        <Left />
-        <Middle />
-        <Right />
-      </div>
+      {loading ? (
+        <p>Loading...</p>
+      ) : (
+        <div className="App">
+          <Left />
+          <Middle />
+          <Right />
+        </div>
+      )}
     </ContentContext.Provider>
   );
 };
