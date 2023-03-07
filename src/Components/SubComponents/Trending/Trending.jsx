@@ -17,7 +17,7 @@ export default function Trending({ title }) {
               if (index < 8) {
                 return (
                   <Col md={6} lg={6} key={index}>
-                    <Trend ind={index} />
+                    <Trend ind={index} key = {index} />
                   </Col>
                 );
               }

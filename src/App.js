@@ -6,6 +6,8 @@ import Right from "../src/Components/Right/Right";
 import Middle from "../src/Components/Middle/Middle";
 import { checkUser } from "./Components/utils/firebase/firebase";
 import { playlist } from "../src/data";
+
+
 export const ContentContext = createContext();
 
 const App = () => {
@@ -18,7 +20,7 @@ const App = () => {
   useEffect(() => {
     const unsubscribe = checkUser((user) => {
       setCurrentUser(user);
-
+    
       setTimeout(() => {
         setLoading(false);
       }, 100);

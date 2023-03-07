@@ -1,13 +1,15 @@
 import { Avatar } from "@mui/material";
-import PlayCircleIcon from "@mui/icons-material/PlayCircle";
+
 import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import "./TrendStyle.css";
 import { ContentContext } from "../../../App";
 import { useContext } from "react";
+import PlayCircle from "../PlayCircle/PlayCircle";
 
 export default function Trend({ ind }) {
-  const { playlist, setIndex, isPlaying, setIsPlaying } =
+  const { playlist} =
     useContext(ContentContext);
+  
   return (
     <div className="trend-section">
       <div className="avatar-text">
@@ -19,13 +21,7 @@ export default function Trend({ ind }) {
         </div>
       </div>
       <div className="iconSection">
-        <PlayCircleIcon
-          onClick={() => {
-            setIndex(ind);
-            setIsPlaying(true);
-            
-          }}
-        />
+        <PlayCircle color = "white" index={ind}/>
         <FavoriteBorderIcon />
       </div>
     </div>

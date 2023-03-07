@@ -20,3 +20,14 @@ min-height : 95%;
 .singer {
   color: var(--white-secondary);
 }
+.song-div{
+  display: flex;
+  justify-content: space-between;
+}
+.name-div{
+  text-align: left;
+}
+.orange{
+  color: var(--orange-primary);
+  width : 2em;
+}

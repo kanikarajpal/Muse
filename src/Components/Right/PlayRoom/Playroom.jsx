@@ -10,13 +10,15 @@ import { useContext } from "react";
 import { ContentContext } from "../../../App";
 import { joinUser, createUser } from "../../utils/firebase/firebase";
 
+
+
 export default function Playroom() {
-  const { photo, userName, userEmail, playroom, setPlayRoom } =
+  const { photo, userName, userEmail,currentUser } =
     useContext(ContentContext);
 
   const [createOpen, setCreateOpen] = useState(false);
   const [joinOpen, setJoinOpen] = useState(false);
-  const [localPlayroomData, setLocalPlayroomData] = useState({});
+  //const [localPlayroomData, setLocalPlayroomData] = useState({});
   const [notification, setNotification] = useState({
     isNotif: false,
     notif: "",
@@ -36,7 +38,10 @@ export default function Playroom() {
   };
   
 
+
+  
   useEffect(() => {
+   
     if (notification.isNotif)
       setTimeout(() => {
         setNotification({
@@ -53,42 +58,49 @@ export default function Playroom() {
     const newUser = { userName, userEmail, photo };
 
     const submitCreateHandle = () => {
-      if (playRoomName) {
-        checkPlayroom(playRoomName, "create").then((resp) => {
-          if (resp) {
-            setNotification({
-              isNotif: true,
-              notif: "Congratulations ! Your Playroom is Created.",
-              type: "success",
-            });
-            createUser(playRoomName, newUser);
-            setState(false);
-          } else {
-            setNotification({
-              isNotif: true,
-              notif:
-                "Playroom already exists! Enter a different Playroom name.",
-              type: "failure",
-            });
-          }
-        });
-      } else {
-        setNotification({
-          isNotif: true,
-          notif: "Enter a valid Playroom name!",
-          type: "failure",
-        });
+      if (currentUser) {
+      
+        if (playRoomName) {
+          checkPlayroom(playRoomName, "create").then((resp) => {
+            if (resp) {
+              setNotification({
+                isNotif: true,
+                notif: "Congratulations ! Your Playroom is Created.",
+                type: "success",
+              });
+              createUser(playRoomName, newUser);
+              setState(false);
+            } else {
+              setNotification({
+                isNotif: true,
+                notif:
+                  "Playroom already exists! Enter a different Playroom name.",
+                type: "failure",
+              });
+            }
+          });
+        } else {
+          setNotification({
+            isNotif: true,
+            notif: "Enter a valid Playroom name!",
+            type: "failure",
+          });
+        }
+      }
+      else {
+        
       }
     };
     const submitJoinHandle = () => {
       if (playRoomName) {
         checkPlayroom(playRoomName, "join").then((resp) => {
-          console.log(resp, typeof resp);
+          
           if (resp) {
-            resp.forEach((doc) => {
-              setLocalPlayroomData(doc.data());
-              console.log(localPlayroomData, 'kani');
-            });
+            // resp.forEach((doc) => {
+            //   setLocalPlayroomData(doc.data());
+              
+             
+            // });
 
             joinUser(resp, playRoomName, newUser).then((val) => {
               
@@ -151,7 +163,7 @@ export default function Playroom() {
 
             <Button
               onClick={() => {
-                if (createOpen) submitCreateHandle();
+                if (createOpen ) submitCreateHandle();
                 if (joinOpen) submitJoinHandle();
               }}
             >
@@ -169,7 +181,15 @@ export default function Playroom() {
         <Button
           cls="button-div"
           onClick={() => {
-            setCreateOpen(true);
+            if(currentUser)
+              setCreateOpen(true);
+            else {
+              setNotification({
+              isNotif: true,
+              notif: "Login first in order to create a playroom",
+              type: "failure",
+            });
+            }
           }}
         >
           <p>Create Playroom</p>
@@ -178,7 +198,15 @@ export default function Playroom() {
         <Button
           cls="button-div"
           onClick={() => {
-            setJoinOpen(true);
+            if(currentUser)
+              setJoinOpen(true);
+            else {
+              setNotification({
+              isNotif: true,
+              notif: "Sign in first in order to create a playroom",
+              type: "failure",
+            });
+            }
           }}
         >
           Join Playroom

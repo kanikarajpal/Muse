@@ -33,7 +33,7 @@ provider.setCustomParameters({
   prompt: "select_account",
 });
 
-const db = getFirestore(app);
+export const db = getFirestore(app);
 
 export const checkPlayroom = async (playRoomName, str) => {
   const querySnapshot = await getDocs(collection(db, playRoomName));
@@ -91,3 +91,5 @@ export const signInWithGooglePopup = () => signInWithPopup(auth, provider);
 export const checkUser = (callback) => onAuthStateChanged(auth, callback);
 
 export const signOutUser = async () => await signOut(auth);
+
+
