@@ -40,12 +40,12 @@ export default function Quorus({ quorusElement }) {
            
             return (
               <SwiperSlide key={index} className="swiper">
-                <Playcard ind={index} item={item}></Playcard>
+                <Playcard ind={index} item={item} ></Playcard>
               </SwiperSlide>
             );
           }
           else
-            return <></>;
+            return <div key = {index}></div>;
         })
       ) : (
         <p className="noSearchResult"> No Result Found</p>

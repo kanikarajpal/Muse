@@ -1,7 +1,7 @@
 import "./TrendingStyle.css";
 import Trend from "../Trend/Trend";
 import { ContentContext } from "../../../App";
-import { Fragment, useContext } from "react";
+import {  useContext } from "react";
 import { Container, Row, Col } from "react-grid-system";
 
 export default function Trending({ title }) {
@@ -22,7 +22,7 @@ export default function Trending({ title }) {
                 );
               }
               else {
-                return <></>;
+                return <div key = {index}></div>;
               }
             })}
           </Row>

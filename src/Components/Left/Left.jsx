@@ -17,25 +17,23 @@ export default function Left() {
     "Artists",
   ];
 
-  const { currentUser, userName } = useContext(ContentContext);
+  const { currentUser } = useContext(ContentContext);
 
   const handleSignOut = async () => {
-    const res = await signOutUser();
+    await signOutUser();
   };
 
   const guidanceList = ["FAQ", "Help", "Privacy Policy"];
 
   const signInWithGoogle = async (e) => {
     e.preventDefault();
-    const { user } = await signInWithGooglePopup();
-    //const temp = await showDetails(user);
-    //setUsername(temp);
-    //await createUserDocumentFromAuth(user);
+    await signInWithGooglePopup();
+   
   };
 
   return (
     <div className="left-container">
-      <img src={Logo} className="logo" />
+      <img src={Logo} className="logo"  alt="logo"/>
       <div>
         <Menu title={"Menu"} compList={menuCompList} />
         <Menu title={"Guidance"} compList={guidanceList} />
@@ -51,7 +49,7 @@ export default function Left() {
           <p className="login-btn">Sign Out </p>
         ) : (
           <div className="login-btn">
-            <p>Sign in with </p> <img src={Icon} className="google-icon"></img>
+            <p>Sign in with </p> <img src={Icon} className="google-icon" alt = 'google-icon'></img>
           </div>
         )}
       </Button></div>

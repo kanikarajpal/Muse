@@ -8,7 +8,7 @@ import { useState } from "react";
 import { playlist } from "../../../src/data";
 
 export default function Middle() {
-  const { currentUser, userName } = useContext(ContentContext);
+  const {  userName } = useContext(ContentContext);
   let var1 = userName.split(" ");
 
   const [searchElement, setSearchElement] = useState(playlist);

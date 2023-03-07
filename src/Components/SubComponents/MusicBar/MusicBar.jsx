@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef, useContext } from "react";
 import { styled, Typography, Slider, Paper, Stack, Box } from "@mui/material";
-import PauseCircleIcon from '@mui/icons-material/PauseCircle';
+import PauseCircleIcon from "@mui/icons-material/PauseCircle";
 import FastRewindIcon from "@mui/icons-material/FastRewind";
 import FastForwardIcon from "@mui/icons-material/FastForward";
-import PlayCircleIcon from '@mui/icons-material/PlayCircle';
+import PlayCircleIcon from "@mui/icons-material/PlayCircle";
 import SkipNextIcon from "@mui/icons-material/SkipNext";
 import SkipPreviousIcon from "@mui/icons-material/SkipPrevious";
 import { ContentContext } from "../../../App";
@@ -45,20 +45,9 @@ export default function MusicBar() {
 
   const [elapsed, setElapsed] = useState(0);
   const [duration, setDuration] = useState(0);
+   
 
-  useEffect(() => {
-    if (isPlaying) {
-      setInterval(() => {
-        const _duration = Math.floor(audioPlayer?.current?.duration);
-        const _elapsed = Math.floor(audioPlayer?.current?.currentTime);
-
-        setDuration(_duration);
-        setElapsed(_elapsed);
-      }, 100);
-    }
-
-    togglePlay();
-  }, [isPlaying, index]);
+  
 
   function formatTime(time) {
     if (time && !isNaN(time)) {
@@ -76,17 +65,6 @@ export default function MusicBar() {
     return "00:00";
   }
 
-  const togglePlay = () => {
- 
-    audioPlayer.current.src = playlist[index].sound;
-
-    if (!isPlaying) {
-      audioPlayer.current.pause();
-    } else {
-      audioPlayer.current.play();
-    }
-
-  };
 
   const toggleForward = () => {
     audioPlayer.current.currentTime += 10;
@@ -122,6 +100,25 @@ export default function MusicBar() {
     setIsPlaying((prev) => prev + 1);
   };
 
+  useEffect(() => {
+    if (isPlaying) {
+      setInterval(() => {
+        const _duration = Math.floor(audioPlayer?.current?.duration);
+        const _elapsed = Math.floor(audioPlayer?.current?.currentTime);
+
+        setDuration(_duration);
+        setElapsed(_elapsed);
+      }, 100);
+    }
+
+    audioPlayer.current.src = playlist[index].sound;
+
+    if (!isPlaying) {
+      audioPlayer.current.pause();
+    } else {
+      audioPlayer.current.play();
+    }
+  }, [isPlaying,playlist, index]);
   return (
     <Div>
       <audio src={currentSong} ref={audioPlayer} />
@@ -152,7 +149,6 @@ export default function MusicBar() {
                 fontSize={"large"}
                 sx={{ color: "white", "&:hover": { color: "white" } }}
                 onClick={() => {
-                
                   setIsPlaying(true);
                 }}
               />
@@ -161,7 +157,6 @@ export default function MusicBar() {
                 fontSize={"large"}
                 sx={{ color: "white", "&:hover": { color: "white" } }}
                 onClick={() => {
-        
                   setIsPlaying(false);
                 }}
               />
