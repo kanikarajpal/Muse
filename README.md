@@ -2,6 +2,7 @@
 # Muse
 
 Welcome to Muse, the ultimate music streaming app that is designed to enhance your music listening experience like never before! Our app not only lets you enjoy the trending, favorite, recently played songs but also comes packed with a profusion of exciting features that sets it apart from other music apps. With Muse, you can create and store your playlist of favorites, and even create a chorus i.e playrooms where you can share your playlists with friends, family, or relatives. What's more, you can listen to songs in real time with your friends and loved ones, making it a truly social and interactive experience. So why settle for a basic music app when you can have Muse - the app that takes music streaming to the next level?
+You can visit it at : https://themuse.netlify.app/
 
 ## Exclusive Features
 * Trending, favorites, and recently played songs for easy access to all your preferred tunes.
